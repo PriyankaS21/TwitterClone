@@ -1,0 +1,73 @@
+﻿@model TwitterClone.ViewModel.WelcomePage
+
+@{
+    ViewBag.Title = "Twitter Clone";
+}
+
+<h2>Welcome To TWITTER CLONE</h2>
+<div>
+
+    Welcome XYZ!  @Html.ActionLink("Home", "Index")|
+    @Html.ActionLink("Profile", "Index")|
+    @Html.ActionLink("SignOut", "Index")
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+
+<div class="form-horizontal">
+    <h4>My Twitter Clone</h4>
+    <div>
+        <li>
+            @Html.ActionLink("1", "Index") Tweets
+        </li>
+        <li>
+            @Html.ActionLink("2", "Index") Following
+        </li>
+        <li>
+            @Html.ActionLink("3", "Index") Followers
+        </li>
+    </div>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.WhatAreYouDoing, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.WhatAreYouDoing, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.WhatAreYouDoing, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Update" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Tweets, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Tweets, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Tweets, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Follow, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Follow, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Follow, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+</div>
+}
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
